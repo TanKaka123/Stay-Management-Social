@@ -3,7 +3,7 @@ import React from "react";
 import { SideMenuCheckout } from "@/components/SideMenuCheckout";
 import { CheckoutForm } from "@/components/form/CheckoutForm";
 
-export type CheckOutPagePageMainProps = {
+type CheckOutPagePageMainProps = {
   className?: string;
 }
 
