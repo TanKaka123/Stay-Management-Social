@@ -3,11 +3,7 @@ import React from "react";
 import { SideMenuCheckout } from "@/components/SideMenuCheckout";
 import { CheckoutForm } from "@/components/form/CheckoutForm";
 
-type CheckOutPagePageMainProps = {
-  className?: string;
-}
-
-const CheckOutPagePageMain = ({ className = "" }: CheckOutPagePageMainProps) => {
+const CheckOutPagePageMain = ({ className = "" }: {className?: string}) => {
   return (
     <div className={`nc-CheckOutPagePageMain ${className}`}>
       <main className="container mt-11 mb-24 lg:mb-32 flex flex-col-reverse lg:flex-row">
