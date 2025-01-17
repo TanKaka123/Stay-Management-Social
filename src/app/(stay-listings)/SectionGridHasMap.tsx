@@ -12,11 +12,19 @@ import Heading2 from "@/shared/Heading2";
 import StayCard2 from "@/components/StayCard2";
 
 const DEMO_STAYS = DEMO_STAY_LISTINGS.filter((_, i) => i < 12);
-export interface SectionGridHasMapProps {}
+export interface SectionGridHasMapProps { }
+
+const ITEM_PER_PAGE = 8;
 
 const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
   const [currentHoverID, setCurrentHoverID] = useState<string | number>(-1);
   const [showFullMapFixed, setShowFullMapFixed] = useState(false);
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const paginatedData = DEMO_STAYS.slice((currentPage - 1) * ITEM_PER_PAGE, currentPage * ITEM_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div>
@@ -28,7 +36,7 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
             <TabFilters />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 2xl:gap-x-6 gap-y-8">
-            {DEMO_STAYS.map((item) => (
+            {paginatedData.map((item) => (
               <div
                 key={item.id}
                 onMouseEnter={() => setCurrentHoverID((_) => item.id)}
@@ -39,7 +47,12 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
             ))}
           </div>
           <div className="flex mt-16 justify-center items-center">
-            <Pagination />
+            <Pagination 
+              currentPage={currentPage} 
+              totalItems={DEMO_STAYS.length} 
+              itemsPerPage={ITEM_PER_PAGE} 
+              onPageChange={handlePageChange} 
+            />
           </div>
         </div>
 
@@ -55,9 +68,8 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
 
         {/* MAPPPPP */}
         <div
-          className={`xl:flex-1 xl:static xl:block ${
-            showFullMapFixed ? "fixed inset-0 z-50" : "hidden"
-          }`}
+          className={`xl:flex-1 xl:static xl:block ${showFullMapFixed ? "fixed inset-0 z-50" : "hidden"
+            }`}
         >
           {showFullMapFixed && (
             <ButtonClose

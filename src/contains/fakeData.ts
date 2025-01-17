@@ -16,18 +16,6 @@ const personNames = [
   "Belinda Ritter",
   "Jameson Dickerson",
   "Giada Mann",
-  "Evie Osborn",
-  "Juliet Mcpherson",
-  "Charlize Raymond",
-  "Amaris Pittman",
-  "Arnav Morris",
-  "Malakai Casey",
-  "Nevaeh Henry",
-  "Mireya Roman",
-  "Anthony Wyatt",
-  "Mike Orr",
-  "Azul Hull",
-  "Derick Hubbard",
 ];
 
 const tagNames = [
