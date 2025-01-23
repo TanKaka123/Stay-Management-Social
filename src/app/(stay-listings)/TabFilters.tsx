@@ -383,6 +383,7 @@ const TabFilters = () => {
                 &#8203;
               </span>
               <Transition.Child
+                as="div"
                 className="inline-block py-8 px-2 h-screen w-full max-w-4xl"
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 scale-95"
@@ -494,6 +495,7 @@ const TabFilters = () => {
                 &#8203;
               </span>
               <Transition.Child
+                as="div"
                 className="inline-block py-8 px-2 h-screen w-full max-w-4xl"
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 scale-95"
