@@ -99,7 +99,7 @@ export type CommentPostType = {
 export type PostSocialDataType = {
   id: string,
   username: string,
-  userId: string,
+  userId: number,
   profilePicture: string,
   postImage: string,
   caption: string,
