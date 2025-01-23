@@ -13,7 +13,7 @@ const demoChildMenus: NavItemType[] = [
 const templatesChildrenMenus: NavItemType[] = [
   {
     id: ncNanoId(),
-    href: "/",
+    href: "/add-listing/1",
     name: "Add Stay",
   },
   //
