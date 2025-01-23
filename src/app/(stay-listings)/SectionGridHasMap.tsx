@@ -12,11 +12,21 @@ import Heading2 from "@/shared/Heading2";
 import StayCard2 from "@/components/StayCard2";
 
 const DEMO_STAYS = DEMO_STAY_LISTINGS.filter((_, i) => i < 12);
-export interface SectionGridHasMapProps {}
+
+const ITEM_PER_PAGE = 8;
+
+export interface SectionGridHasMapProps { }
 
 const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
   const [currentHoverID, setCurrentHoverID] = useState<string | number>(-1);
   const [showFullMapFixed, setShowFullMapFixed] = useState(false);
+  
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const paginatedData = DEMO_STAYS.slice((currentPage - 1) * ITEM_PER_PAGE, currentPage * ITEM_PER_PAGE);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div>
@@ -39,7 +49,12 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
             ))}
           </div>
           <div className="flex mt-16 justify-center items-center">
-            <Pagination />
+            <Pagination
+              currentPage={currentPage}
+              totalItems={DEMO_STAYS.length}
+              itemsPerPage={ITEM_PER_PAGE}
+              onPageChange={handlePageChange}
+            />
           </div>
         </div>
 
@@ -55,9 +70,8 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = () => {
 
         {/* MAPPPPP */}
         <div
-          className={`xl:flex-1 xl:static xl:block ${
-            showFullMapFixed ? "fixed inset-0 z-50" : "hidden"
-          }`}
+          className={`xl:flex-1 xl:static xl:block ${showFullMapFixed ? "fixed inset-0 z-50" : "hidden"
+            }`}
         >
           {showFullMapFixed && (
             <ButtonClose
