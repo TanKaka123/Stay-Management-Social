@@ -89,3 +89,26 @@ export interface StayDataType {
   };
   tags?: string[]
 }
+
+export type CommentPostType = {
+  userId: string;
+  username: string;
+  avatar: string;
+  text: string;
+}
+export type PostSocialDataType = {
+  id: string,
+  username: string,
+  userId: string,
+  profilePicture: string,
+  postImage: string,
+  caption: string,
+  likedCount: number,
+  shareCount: number,
+  commentsCount: number,
+  isLiked: boolean,
+  comments: CommentPostType[],
+  timestamp: string,
+  location?: string,
+  tags?: string[],
+}

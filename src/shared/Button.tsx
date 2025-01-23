@@ -3,20 +3,21 @@
 import { Route } from "@/routers/types";
 import Link from "next/link";
 import React, { ButtonHTMLAttributes, FC } from "react";
+import { UrlObject } from "url";
 
 export interface ButtonProps {
   className?: string;
   translate?: string;
   sizeClass?: string;
   fontSize?: string;
-  //
   loading?: boolean;
   disabled?: boolean;
   type?: ButtonHTMLAttributes<HTMLButtonElement>["type"];
-  href?: Route<string>;
+  href?: string;
   targetBlank?: boolean;
   onClick?: () => void;
   children?: React.ReactNode;
+  alignItems?: string
 }
 
 const Button: FC<ButtonProps> = ({
@@ -30,9 +31,10 @@ const Button: FC<ButtonProps> = ({
   targetBlank,
   type,
   loading,
+  alignItems,
   onClick = () => {},
 }) => {
-  const CLASSES = `nc-Button relative h-auto inline-flex items-center justify-center rounded-full transition-colors ${fontSize} ${sizeClass} ${translate} ${className} `;
+  const CLASSES = `nc-Button relative h-auto inline-flex items-center ${alignItems ? alignItems : 'justify-center'} rounded-full transition-colors ${fontSize} ${sizeClass} ${translate} ${className} `;
 
   const _renderLoading = () => {
     return (
@@ -62,7 +64,7 @@ const Button: FC<ButtonProps> = ({
   if (!!href) {
     return (
       <Link
-        href={href}
+        href={href as any}
         target={targetBlank ? "_blank" : undefined}
         className={`${CLASSES} `}
         onClick={onClick}

@@ -381,7 +381,7 @@ const ListingStayDetailPage: FC<ListingStayDetailPageProps> = ({}) => {
         {/* == */}
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div>
-          <ButtonSecondary href={"/author" as Route<string>}>See host profile</ButtonSecondary>
+          <ButtonSecondary href="/author">See host profile</ButtonSecondary>
         </div>
       </div>
     );

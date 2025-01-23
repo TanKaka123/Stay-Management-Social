@@ -19,7 +19,7 @@ export interface NavItemType {
   id: string;
   name: string;
   isNew?: boolean;
-  href: PathName;
+  href: string;
   targetBlank?: boolean;
   children?: NavItemType[];
   megaMenu?: MegamenuItem[];
@@ -122,7 +122,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
         <Link
           rel="noopener noreferrer"
           className="inline-flex items-center py-1 px-2 rounded hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 font-normal text-neutral-6000 dark:text-neutral-300"
-          href={item.href || ""}
+          href={item.href as any || ""}
         >
           {item.name}
         </Link>
@@ -237,7 +237,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
         target={item.targetBlank ? "_blank" : undefined}
         rel="noopener noreferrer"
         className="flex items-center font-normal text-neutral-6000 dark:text-neutral-300 py-2 px-4 rounded-md hover:text-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200 "
-        href={item.href || ""}
+        href={item.href as any || ""}
       >
         {item.name}
         {item.type && (
@@ -256,7 +256,7 @@ const NavigationItem: FC<NavigationItemWithRouterProps> = ({ menuItem }) => {
       <Link
         rel="noopener noreferrer"
         className="inline-flex items-center text-sm xl:text-base font-normal text-neutral-700 dark:text-neutral-300 py-2 px-4 xl:px-5 rounded-full hover:text-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
-        href={item.href || "/"}
+        href={item.href as any || "/"}
       >
         {item.name}
         {item.type && (
