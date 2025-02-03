@@ -36,6 +36,11 @@ export const NAVIGATION_DEMO: NavItemType[] = [
   },
   {
     id: ncNanoId(),
+    href: "/management",
+    name: "Management",
+  },
+  {
+    id: ncNanoId(),
     href: "/",
     name: "To do",
     type: "dropdown",
