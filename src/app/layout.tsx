@@ -1,3 +1,4 @@
+
 import { Poppins } from "next/font/google";
 import SiteHeader from "../components/header/SiteHeader";
 import ClientCommons from "./ClientCommons";
@@ -27,7 +28,6 @@ export default function RootLayout({
         <ClientCommons />
         <SiteHeader />
         {children}
-        <FooterNav />
         <Footer />
       </body>
     </html>

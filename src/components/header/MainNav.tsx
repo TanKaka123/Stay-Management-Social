@@ -39,8 +39,8 @@ const USER_NAV: UserNavType[] = [
   },
   {
     type: 'menu_item',
-    content: 'TO DO',
-    href: '/signup'
+    content: 'Chat',
+    href: '/messages'
   }
 ]
 

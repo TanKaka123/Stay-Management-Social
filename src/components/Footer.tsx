@@ -4,6 +4,7 @@ import Logo from "@/shared/Logo";
 import { CustomLink } from "@/data/types";
 import React from "react";
 import FooterNav from "./FooterNav";
+import { useParams, usePathname } from "next/navigation";
 
 export interface WidgetFooterMenu {
   id: string;
@@ -58,7 +59,11 @@ const widgetMenus: WidgetFooterMenu[] = [
   },
 ];
 
+const PAGE_HIDE_FOOTER = ["/messages"]
+
 const Footer: React.FC = () => {
+  const pathName = usePathname();
+
   const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
     return (
       <div key={index} className="text-sm">
@@ -82,10 +87,13 @@ const Footer: React.FC = () => {
     );
   };
 
+  if(PAGE_HIDE_FOOTER.includes(pathName)){
+    return null;
+  }
+
   return (
     <>
       <FooterNav />
-
       <div className="nc-Footer relative py-24 lg:py-28 border-t border-neutral-200 dark:border-neutral-700">
         <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 ">
           <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
